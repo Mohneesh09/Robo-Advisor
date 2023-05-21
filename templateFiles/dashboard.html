@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script> -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
+            integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <link rel="stylesheet" href="../staticFiles/dashboard.css" />
+        <title>Document</title>
+    </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    />
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"
+        integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+
+    <body>
+        <div class="container">
+            <nav class="sidebar">
+                <form action="/predict" method="POST">
+                    <div class="sidebar__logo" style="margin-bottom: 30px">
+                        <svg
+                            width="34"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <g clip-path="url(#clip0_129_9347)">
+                                <path
+                                    d="M19.5386 23.4366C19.3904 23.5849 19.2144 23.7025 19.0208 23.7828C18.8271 23.863 18.6195 23.9043 18.4099 23.9043C18.2003 23.9043 17.9927 23.863 17.799 23.7828C17.6053 23.7025 17.4294 23.5849 17.2812 23.4366L8.09921 14.2561C6.77491 12.9048 6.03741 11.0854 6.04697 9.19342C6.05652 7.30139 6.81236 5.48959 8.15024 4.15171C9.48812 2.81383 11.2999 2.05799 13.192 2.04843C15.084 2.03888 16.9033 2.77638 18.2547 4.10067L24.0578 9.90378C24.3563 10.2039 24.5235 10.6103 24.5224 11.0337C24.5213 11.457 24.3521 11.8626 24.052 12.1612C23.7518 12.4598 23.3454 12.6269 22.9221 12.6258C22.4987 12.6247 22.0931 12.4555 21.7945 12.1554L15.9987 6.35228C15.2499 5.60352 14.2344 5.18287 13.1755 5.18287C12.1166 5.18287 11.101 5.60352 10.3523 6.35228C9.6035 7.10104 9.18285 8.11658 9.18285 9.17549C9.18285 10.2344 9.6035 11.2499 10.3523 11.9987L19.5342 21.1807C19.8338 21.4793 20.0026 21.8847 20.0034 22.3078C20.0042 22.7308 19.837 23.1368 19.5386 23.4366Z"
+                                    fill="#7C5CFC"
+                                />
+                                <path
+                                    d="M24.0012 27.8992C22.6533 29.2436 20.8272 29.9987 18.9234 29.9987C17.0197 29.9987 15.1936 29.2436 13.8457 27.8992L8.04986 22.0961C7.88902 21.951 7.75941 21.7747 7.66891 21.5779C7.57841 21.3811 7.52892 21.1679 7.52346 20.9514C7.51799 20.7348 7.55667 20.5194 7.63713 20.3183C7.71758 20.1172 7.83814 19.9346 7.99145 19.7816C8.14477 19.6286 8.32762 19.5084 8.52889 19.4283C8.73015 19.3482 8.94561 19.31 9.16214 19.3158C9.37867 19.3217 9.59173 19.3716 9.78835 19.4625C9.98497 19.5534 10.161 19.6833 10.3058 19.8445L16.1017 25.6476C16.8516 26.3875 17.8637 26.8008 18.9172 26.7972C19.9707 26.7937 20.98 26.3737 21.7249 25.6287C22.4698 24.8838 22.8899 23.8745 22.8934 22.821C22.8969 21.7675 22.4837 20.7554 21.7437 20.0055L12.5618 10.8192C12.2624 10.5198 12.0942 10.1138 12.0942 9.69047C12.0942 9.26712 12.2624 8.86111 12.5618 8.56176C12.8611 8.26241 13.2671 8.09424 13.6905 8.09424C14.1138 8.09424 14.5198 8.26241 14.8192 8.56176L24.0012 17.7437C25.346 19.0914 26.1013 20.9176 26.1013 22.8215C26.1013 24.7253 25.346 26.5515 24.0012 27.8992Z"
+                                    fill="#7C5CFC"
+                                />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_129_9347">
+                                    <rect
+                                        width="20.1005"
+                                        height="28"
+                                        fill="currentColor"
+                                        transform="translate(6 2)"
+                                    />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <h2 class="sidebar__logo-header">RoboAdvisor</h2>
+                    </div>
+                    <ul class="side-nav">
+                        <span class="side-nav__header" style="margin-bottom: 5%"
+                            >Enter Investor Characteristics</span
+                        >
+                        <span style="font-size: small">Age</span>
+                        <input
+                            type="text"
+                            class="side-nav__item"
+                            name="age"
+                            placeholder=""
+                        />
+                        <br />
+                        <span style="font-size: small">NetWorth(in $M)</span>
+                        <input
+                            type="text"
+                            class="side-nav__item"
+                            name="nwcat"
+                            placeholder=""
+                        />
+                        <br />
+                        <span style="font-size: small">Income</span>
+                        <input
+                            type="text"
+                            class="side-nav__item"
+                            name="inccl"
+                            placeholder=""
+                        />
+                        <br />
+                        <span style="font-size: small"
+                            >Education level (Scale of 4)</span
+                        >
+                        <input
+                            type="text"
+                            class="side-nav__item"
+                            name="edu"
+                            placeholder=""
+                        />
+                        <br />
+                        <span style="font-size: small">Married</span>
+                        <div>
+                            <input
+                                type="radio"
+                                style="margin-left: 10%"
+                                id="1"
+                                value="1"
+                                name="marriagestatus"
+                            />
+                            <label
+                                for="1"
+                                style="padding-right: 30%; font-size: small"
+                                >Yes</label
+                            >
+                            <input
+                                type="radio"
+                                id="2"
+                                value="2"
+                                name="marriagestatus"
+                            />
+                            <label for="2" style="font-size: small">No</label>
+                        </div>
+
+                        <br />
+                        <span style="font-size: small">Number of kids</span>
+                        <input
+                            type="text"
+                            class="side-nav__item"
+                            name="kids"
+                            placeholder=""
+                        />
+                        <br />
+                        <span style="font-size: small"
+                            >Occupation (Scale of 4)</span
+                        >
+                        <input
+                            type="text"
+                            class="side-nav__item"
+                            name="occu"
+                            placeholder=""
+                        />
+                        <br />
+                        <span style="font-size: small"
+                            >Willing to take risk (Scale of 4)</span
+                        >
+                        <input
+                            type="text"
+                            class="side-nav__item"
+                            name="risk"
+                            placeholder=""
+                        />
+                        <br />
+                    </ul>
+
+                    <button
+                        type="submit"
+                        class="side-nav__item_button side-nav__item"
+                        style="padding-right: 2; padding-left: 2"
+                    >
+                        Calculate Risk Tolerance
+                    </button>
+                </form>
+            </nav>
+
+            <main class="main-content">
+                <div class="bottom-container">
+                    <div class="bottom-container__left">
+                        <div class="box transaction-box">
+                            <div class="header-container">
+                                <h3 class="section-header">
+                                    Select the assets for the portfolio:
+                                </h3>
+                            </div>
+                            <form action="/asset_allocation" method="POST">
+                                <div
+                                    id="container"
+                                    class="container"
+                                    style="margin-top: 0%"
+                                >
+                                    <select
+                                        name="stock_tick"
+                                        id="myform"
+                                        class="selectpicker"
+                                        multiple
+                                        aria-label="Default select example"
+                                        data-live-search="true"
+                                    >
+                                        {% for e in options %}
+                                        <option value="{{e.value}}">
+                                            {{e.label}}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <div
+                                        style="
+                                            padding-left: 20%;
+                                            padding-top: 3px;
+                                        "
+                                    >
+                                        <button
+                                            type="submit"
+                                            class="main-content side-nav__item_button side-nav__item"
+                                            style="
+                                                font-size: 10;
+                                                padding-right: 0%;
+                                                padding-left: 0%;
+                                            "
+                                            onclick="CreateChart();"
+                                        >
+                                            Get Asset Allocation
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <br />
+                        <div class="box spending-box">
+                            <div class="header-container">
+                                <h3 class="section-header">
+                                    Suggested Portfolio
+                                </h3>
+                                <div class="year-selector">
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <rect
+                                            opacity="0.8"
+                                            width="24"
+                                            height="24"
+                                            rx="6"
+                                            fill="#F6F7F9"
+                                        />
+                                        <path
+                                            d="M13.4999 15.96L10.2399 12.7C9.85492 12.315 9.85492 11.685 10.2399 11.3L13.4999 8.04004"
+                                            stroke="#1A202C"
+                                            stroke-width="1.5"
+                                            stroke-miterlimit="10"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                    <span>2023</span>
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <rect
+                                            opacity="0.8"
+                                            width="24"
+                                            height="24"
+                                            rx="6"
+                                            fill="#F6F7F9"
+                                        />
+                                        <path
+                                            d="M10.4551 15.96L13.7151 12.7C14.1001 12.315 14.1001 11.685 13.7151 11.3L10.4551 8.04004"
+                                            stroke="#1A202C"
+                                            stroke-width="1.5"
+                                            stroke-miterlimit="10"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bar-chart">
+                                <canvas
+                                    id="myChart"
+                                    height="220px"
+                                    width="660px"
+                                ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-container__right">
+                        <div class="box">
+                            <div class="header-container">
+                                <h3 class="section-header">
+                                    Risk Tolerance(scale of 100):
+                                </h3>
+                            </div>
+                            <h1 class="price">
+                                <span class="price-currency"
+                                    ><h3>{{riskTolerance}}</h3></span
+                                >
+                                <!-- <span class="price-currency">(USD)</span> -->
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx = document.getElementById("myChart");
+
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["a", "b", "c"],
+                    datasets: [
+                        {
+                            label: "Expense",
+                            data: [10, 34, 53],
+                            borderWidth: 1,
+                            borderRadius: 30,
+                            barThickness: 12,
+                            backgroundColor: ["rgba(114, 92, 255, 1)"],
+                            borderColor: ["rgba(114, 92, 255, 1)"],
+                            hoverBackgroundColor: ["rgba(28, 30, 35, 1)"],
+                            hoverBorderColor: ["rgba(28, 30, 35, 1)"],
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                // Include a dollar sign in the ticks
+                                callback: function (value, index, ticks) {
+                                    return "$" + value + "k";
+                                },
+                                stepSize: 5,
+                            },
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                        },
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                            labels: {
+                                font: {
+                                    size: 12,
+                                    family: "'Plus Jakarta Sans', sans-serif",
+                                    lineHeight: 18,
+                                    weight: 600,
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            const ctx2 = document.getElementById("myChart2");
+
+            new Chart(ctx2, {
+                type: "doughnut",
+                data: {
+                    datasets: [
+                        {
+                            label: "Overall Spending",
+                            data: [8000, 2130, 1510, 2245, 4385, 1000],
+                            borderRadius: 5,
+                            cutout: 80,
+                            backgroundColor: [
+                                "rgb(235, 124, 166)",
+                                "rgb(255, 172, 200)",
+                                "rgb(204, 111, 248)",
+                                "rgb(124, 92, 252)",
+                                "rgb(92, 175, 252)",
+                                "rgb(161, 169, 254)",
+                            ],
+                            hoverOffset: 4,
+                            spacing: 8,
+                        },
+                    ],
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
