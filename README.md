@@ -4,4 +4,3 @@ Also one can select number of stocks he/she wants to invest and the model presen
 
 Used Quadratic Prgramming for calculating effecient frontier,
 refrence: https://courses.csail.mit.edu/6.867/wiki/images/a/a7/Qp-cvxopt.pdf
-## The following dashboard looks like shown in dash.pdf
