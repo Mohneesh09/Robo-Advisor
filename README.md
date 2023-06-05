@@ -11,7 +11,7 @@ Tech Stack: CVXOpt, Sklearn, Matplotlib, Numpy, Pandas, Flask, HTML, CSS, Chart.
 
 Yo can access the demo of the website on our local server for now on:
                                  
-                                 https://www.youtube.com/watch?v=svUJJDmvF5g&ab_channel=RaghvanPareek
+ https://www.youtube.com/watch?v=svUJJDmvF5g&ab_channel=RaghvanPareek
 
 
 
