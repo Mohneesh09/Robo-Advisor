@@ -9,7 +9,7 @@ refrence: https://courses.csail.mit.edu/6.867/wiki/images/a/a7/Qp-cvxopt.pdf
 
 Tech Stack: CVXOpt, Sklearn, Matplotlib, Numpy, Pandas, Flask, HTML, CSS, Chart.js.
 
-Yo can access the demo of the website on our local server for now on:
+You can access the demo of the website on our local server for now on:
                                  
  https://www.youtube.com/watch?v=svUJJDmvF5g&ab_channel=RaghvanPareek
 
